@@ -2,6 +2,7 @@ package com.example.Barun.Todo.WebApp.service;
 
 import com.example.Barun.Todo.WebApp.model.Todo;
 import com.example.Barun.Todo.WebApp.repository.TodoRepo;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,7 @@ public class TodoService {
         return todoRepo.save(todo);
     }
 
+    @Transactional
     public Todo updateTodo(Long id, Todo updatedTodo) {
         Todo todo = getTodoById(id);
         todo.setTitle(updatedTodo.getTitle());

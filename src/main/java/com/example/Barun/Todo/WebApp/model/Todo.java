@@ -1,9 +1,6 @@
 package com.example.Barun.Todo.WebApp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -19,6 +16,11 @@ public class Todo {
     private String description;
     private boolean completed;
     private LocalDateTime createAt;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createAt = LocalDateTime.now();
+    }
 
     public Long getId() {
         return id;

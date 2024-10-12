@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --danger-color: #e74c3c;
+  --background-color: #f5f6fa;
+  --text-color: #2c3e50;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+.todo-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.todo-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.todo-subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.add-todo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.add-todo-input,
+.add-todo-textarea {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.add-todo-input:focus,
+.add-todo-textarea:focus {
+  border-color: var(--primary-color);
+}
+
+.add-todo-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.add-todo-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-todo-button:hover {
+  background-color: #2980b9;
+}
+
+.todo-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.todo-item {
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.todo-item:hover {
+  transform: translateY(-2px);
+}
+
+.todo-item.completed .todo-title {
+  text-decoration: line-through;
+  color: #777;
+}
+
+.todo-content {
+  padding: 1rem;
+}
+
+.todo-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.todo-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.todo-meta {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.todo-date {
+  display: flex;
+  align-items: center;
+}
+
+.todo-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #f8f9fa;
+}
+
+.todo-checkbox {
+  margin-right: 0.5rem;
+}
+
+.edit-button,
+.delete-button,
+.save-button,
+.cancel-button {
+  padding: 0.5rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.edit-button {
+  color: var(--primary-color);
+}
+
+.delete-button {
+  color: var(--danger-color);
+}
+
+.save-button {
+  color: var(--secondary-color);
+}
+
+.cancel-button {
+  color: var(--danger-color);
+}
+
+.todo-edit-form {
+  padding: 1rem;
+}
+
+.edit-todo-input,
+.edit-todo-textarea {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 0.5rem;
+}
+
+.edit-todo-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.no-todos {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+}
+
+@media (max-width: 600px) {
+  .todo-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .todo-title {
+    font-size: 2rem;
+  }
+
+  .add-todo-form {
+    flex-direction: column;
+  }
+
+  .add-todo-input,
+  .add-todo-textarea,
+  .add-todo-button {
+    width: 100%;
+  }
+
+  .add-todo-button {
+    margin-top: 0.5rem;
+  }
+}
