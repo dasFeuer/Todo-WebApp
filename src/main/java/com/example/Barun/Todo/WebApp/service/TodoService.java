@@ -20,6 +20,10 @@ public class TodoService {
         return todoRepo.findAll();
     }
 
+    public void deleteAllTodos() {
+         todoRepo.deleteAll();
+    }
+
     public Todo getTodoById (Long id) {
         return todoRepo.findById(id).orElseThrow(() -> new RuntimeException("Todo not found" + id));
     }

@@ -49,6 +49,11 @@ public class TodoController {
         todoService.deleteTodo(id);
     }
 
+    @DeleteMapping("/todos")
+    public void deleteAllTodo() {
+        todoService.deleteAllTodos();
+    }
+
     @GetMapping("/csrf-token")
     public CsrfToken getCsrfToken(HttpServletRequest request) {
 
