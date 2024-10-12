@@ -13,7 +13,7 @@ const TodoApp = () => {
     const fetchTodos = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('http://localhost:8080/todos');
+            const response = await axios.get('http://localhost:8080/todo/todos');
             setTodos(response.data);
         } catch (error) {
             console.error('Error fetching todos:', error);
@@ -26,7 +26,7 @@ const TodoApp = () => {
         setLoading(true);
         try {
             const newTodo = { title, description, completed };
-            await axios.post('http://localhost:8080/todos', newTodo);
+            await axios.post('http://localhost:8080/todo/todos', newTodo);
             fetchTodos();
             setTitle('');
             setDescription('');
@@ -42,7 +42,7 @@ const TodoApp = () => {
         setLoading(true);
         try {
             const updatedTodo = { title, description, completed };
-            await axios.put(`http://localhost:8080/todos/${editingTodo.id}`, updatedTodo);
+            await axios.put(`http://localhost:8080/todo/todos/${editingTodo.id}`, updatedTodo);
             fetchTodos();
             setEditingTodo(null);
             setTitle('');
@@ -57,7 +57,7 @@ const TodoApp = () => {
     const deleteTodo = async (id) => {
         setLoading(true);
         try {
-            await axios.delete(`http://localhost:8080/todos/${id}`);
+            await axios.delete(`http://localhost:8080/todo/todos/${id}`);
             fetchTodos();
         } catch (error) {
             console.error('Error deleting todo:', error);
@@ -69,7 +69,7 @@ const TodoApp = () => {
         if (window.confirm('Are you sure you want to delete all todos?')) {
             setLoading(true);
             try {
-                await axios.delete('http://localhost:8080/todos');
+                await axios.delete('http://localhost:8080/todo/todos');
                 fetchTodos();
             } catch (error) {
                 console.error('Error deleting all todos:', error);
@@ -148,7 +148,7 @@ const TodoApp = () => {
                                     checked={todo.completed}
                                     onChange={() => {
                                         const updatedTodo = { ...todo, completed: !todo.completed };
-                                        axios.put(`http://localhost:8080/todos/${todo.id}`, updatedTodo)
+                                        axios.put(`http://localhost:8080/todo/todos/${todo.id}`, updatedTodo)
                                             .then(fetchTodos)
                                             .catch(error => console.error('Error updating todo:', error));
                                     }}

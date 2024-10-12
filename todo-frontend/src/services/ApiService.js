@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8080/todos'; // Base URL for the Todo API
+const API_BASE_URL = 'http://localhost:8080/todo'; // Base URL for the Todo API
 
 // Fetch all todos
 const fetchTodos = async () => {

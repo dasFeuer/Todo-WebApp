@@ -18,7 +18,7 @@ public class SecurityConfig {
         return http
                 .csrf(AbstractHttpConfigurer:: disable)
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers( "/todos", "/todos/{id}")
+                        .requestMatchers( "/todo/", "/todo/todos", "/todo/todos/{id}")
                         .permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
